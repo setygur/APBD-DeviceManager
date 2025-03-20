@@ -151,11 +151,45 @@ public class DeviceManager
 
     public void ShowAllDevices()
     {
-        
+        foreach (var x in _devices)
+        {
+            if (x != null)
+            {
+                Console.WriteLine(x.ToString());
+            }
+            else
+            {
+                Console.WriteLine("Empty device");
+            }
+        }
     }
 
-    public void ExportDevices()
+    public void ExportDevices(String outputPath)
     {
+        if (!Directory.Exists(outputPath))
+        {
+            Directory.CreateDirectory(outputPath);
+        }
         
+        string filePath = Path.Combine(outputPath, "output.txt");
+
+        try
+        {
+            string[] devicesStrings = new string[15];
+            for (int i = 0; i < 15; i++)
+            {
+                if (_devices[i] != null)
+                {
+                    devicesStrings[i] = _devices[i].ToString();
+                }
+            }
+            File.WriteAllLines(filePath, devicesStrings);
+            Console.WriteLine($"Devices have been written");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
     }
+    
 }
