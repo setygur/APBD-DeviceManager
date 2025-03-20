@@ -22,9 +22,11 @@ public class PersonalComputer : Device
         {
             return base.turnOn();
         }
-        else
-        {
-            throw new EmptySystemException();
-        }
+        throw new EmptySystemException();
+    }
+
+    public override string ToString()
+    {
+        return "P-" + _id + "," + _name + "," + _isOn + "," + _operatingSystem;
     }
 }

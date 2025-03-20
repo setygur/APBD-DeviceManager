@@ -2,9 +2,9 @@ namespace APBD_02.Devices;
 
 public abstract class Device
 {
-    private int _id;
-    private string _name;
-    private bool _isOn;
+    protected int _id;
+    protected string _name;
+    protected bool _isOn;
 
     public Device(int id, string name, bool isOn)
     {
@@ -39,5 +39,10 @@ public abstract class Device
             Console.WriteLine("Device is already off");
             return false;
         }
+    }
+
+    public override string ToString()
+    {
+        return "Unknown Device";
     }
 }

@@ -59,4 +59,9 @@ public class EmbeddedDevice : Device
             }
         }
     }
+
+    public override string ToString()
+    {
+        return "ED-" + _id + "," + _name + "," + _ip + "," + _networkName; 
+    }
 }
