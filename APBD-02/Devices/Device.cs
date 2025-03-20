@@ -13,27 +13,31 @@ public abstract class Device
         _isOn = isOn;
     }
 
-    public virtual void turnOn()
+    public virtual bool turnOn()
     {
         if (!_isOn)
         {
             _isOn = true;
+            return true;
         }
         else
         {
             Console.WriteLine("Device is already on");
+            return false;
         }
     }
 
-    public virtual void turnOff()
+    public virtual bool turnOff()
     {
         if (_isOn)
         {
             _isOn = false;
+            return true;
         }
         else
         {
             Console.WriteLine("Device is already off");
+            return false;
         }
     }
 }
