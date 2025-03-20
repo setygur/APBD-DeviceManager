@@ -11,7 +11,7 @@ public class DeviceManager
         _devices = new Device[15];
     }
 
-    private String[] GetDevicesFromFile()
+    public String[] GetDevicesFromFile()
     {
         if (!File.Exists(_filePath))
         {
@@ -21,7 +21,7 @@ public class DeviceManager
         return File.ReadAllLines(_filePath);
     }
 
-    private Device[] ImportDevices(String[] devicesData)
+    public Device[] ImportDevices(String[] devicesData)
     {
         Device[] devices = new Device[15];
         int index = 0;
@@ -100,7 +100,7 @@ public class DeviceManager
         return devices;
     }
 
-    private String GetIdFromDevice(String name)
+    public String GetIdFromDevice(String name)
     {
         String[] parts = name.Split('-');
         return parts[1];
@@ -134,7 +134,7 @@ public class DeviceManager
         Console.WriteLine("Cannot remove the device as it does not appear in devices");
     }
 
-    public void EditDevice(Device device)
+    public void EditDevice(Device d)
     {
         
     }
@@ -191,5 +191,9 @@ public class DeviceManager
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
     }
-    
+
+    public Device?[] GetDevices()
+    {
+        return _devices?.ToArray();
+    }
 }
