@@ -43,4 +43,5 @@ public class Smartwatch : Device, IPowerNotifier
 
         return base.turnOn();
     }
+    
 }

@@ -1,6 +1,6 @@
 namespace APBD_02.Devices.Exceptions;
 
-public class ConnectionException
+public class ConnectionException : Exception
 {
     
 }
