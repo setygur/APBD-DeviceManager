@@ -40,13 +40,7 @@ public class Smartwatch : Device, IPowerNotifier
         {
             throw new EmptyBatteryException();
         }
-        else
-        {
-            if (base.turnOn())
-            {
-                return true;
-            }
-        }
-        return false;
+
+        return base.turnOn();
     }
 }
