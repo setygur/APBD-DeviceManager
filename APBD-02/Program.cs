@@ -2,7 +2,7 @@
 
 DeviceManager deviceManager = new DeviceManager("input-path");
 deviceManager.ShowAllDevices();
-var smartwatch = new Smartwatch(5, "AppleWatch", false, 10);
+var smartwatch = new Smartwatch("SW-5", "AppleWatch", false, 10);
 deviceManager.AddDevice(smartwatch);
 // deviceManager.TurnOnDevice(smartwatch);
 deviceManager.ShowAllDevices();

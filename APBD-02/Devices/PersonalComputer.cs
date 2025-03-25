@@ -6,12 +6,12 @@ public class PersonalComputer : Device
 {
     private String? _operatingSystem;
 
-    public PersonalComputer(int id, string name, bool isOn) : base(id, name, isOn)
+    public PersonalComputer(string id, string name, bool isOn) : base(id, name, isOn)
     {
         
     }
 
-    public PersonalComputer(int id, string name, bool isOn, string? operatingSystem) : base(id, name, isOn)
+    public PersonalComputer(string id, string name, bool isOn, string? operatingSystem) : base(id, name, isOn)
     {
         _operatingSystem = operatingSystem;
     }

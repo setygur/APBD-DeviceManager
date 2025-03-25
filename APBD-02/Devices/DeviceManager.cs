@@ -38,7 +38,7 @@ public class DeviceManager
             {
                 if (splitDeviceData.Length == 4)
                 {
-                    var id = int.Parse(GetIdFromDevice(splitDeviceData[0]));
+                    var id = splitDeviceData[0];
                     var name = splitDeviceData[1];
                     var isOn = bool.Parse(splitDeviceData[2]);
                     var batteryPercentage = int.Parse(splitDeviceData[3].Substring(0,
@@ -56,7 +56,7 @@ public class DeviceManager
             {
                 if (splitDeviceData.Length == 3)
                 {
-                    var id = int.Parse(GetIdFromDevice(splitDeviceData[0]));
+                    var id = splitDeviceData[0];
                     var name = splitDeviceData[1];
                     var isOn = bool.Parse(splitDeviceData[2]);
                     
@@ -65,7 +65,7 @@ public class DeviceManager
                 }
                 else if (splitDeviceData.Length == 4)
                 {
-                    var id = int.Parse(GetIdFromDevice(splitDeviceData[0]));
+                    var id = splitDeviceData[0];
                     var name = splitDeviceData[1];
                     var isOn = bool.Parse(splitDeviceData[2]);
                     var system = splitDeviceData[3];
@@ -82,7 +82,7 @@ public class DeviceManager
             {
                 if (splitDeviceData.Length == 4)
                 {
-                    var id = int.Parse(GetIdFromDevice(splitDeviceData[0]));
+                    var id = splitDeviceData[0];
                     var name = splitDeviceData[1];
                     var isOn = false;
                     var ip = splitDeviceData[2];
@@ -98,12 +98,6 @@ public class DeviceManager
             }
         }
         return devices;
-    }
-
-    public String GetIdFromDevice(String name)
-    {
-        String[] parts = name.Split('-');
-        return parts[1];
     }
 
     public void AddDevice(Device device)

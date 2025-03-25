@@ -5,7 +5,7 @@ public class DeviceTest
     [Fact]
     public void TurnOn_ShouldReturnTrue_WhenDeviceIsOff()
     {
-        TestDevice device = new TestDevice(1, "TestDevice", false);
+        TestDevice device = new TestDevice("1", "TestDevice", false);
         
         var result = device.turnOn();
 
@@ -15,7 +15,7 @@ public class DeviceTest
     [Fact]
     public void TurnOn_ShouldReturnFalse_WhenDeviceIsAlreadyOn()
     {
-        TestDevice device = new TestDevice(1, "TestDevice", true);
+        TestDevice device = new TestDevice("1", "TestDevice", true);
 
         var result = device.turnOn();
 
@@ -25,7 +25,7 @@ public class DeviceTest
     [Fact]
     public void TurnOff_ShouldReturnTrue_WhenDeviceIsOn()
     {
-        TestDevice device = new TestDevice(1, "TestDevice", true);
+        TestDevice device = new TestDevice("1", "TestDevice", true);
 
         var result = device.turnOff();
 
@@ -35,7 +35,7 @@ public class DeviceTest
     [Fact]
     public void TurnOff_ShouldReturnFalse_WhenDeviceIsAlreadyOff()
     {
-        TestDevice device = new TestDevice(1, "TestDevice", false);
+        TestDevice device = new TestDevice("1", "TestDevice", false);
 
         var result = device.turnOff();
 
@@ -45,7 +45,7 @@ public class DeviceTest
     [Fact]
     public void ToString_ShouldReturnUnknownDevice()
     {
-        TestDevice device = new TestDevice(1, "TestDevice", false);
+        TestDevice device = new TestDevice("1", "TestDevice", false);
 
         var result = device.ToString();
 

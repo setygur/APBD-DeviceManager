@@ -8,7 +8,7 @@ public class EmbeddedDevice : Device
     private String? _ip;
     private String _networkName;
 
-    public EmbeddedDevice(int id, string name, bool isOn, string ip, string networkName) : base(id, name, isOn)
+    public EmbeddedDevice(string id, string name, bool isOn, string ip, string networkName) : base(id, name, isOn)
     {
         if (CheckIp(ip))
         {

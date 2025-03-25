@@ -2,11 +2,11 @@ namespace APBD_02.Devices;
 
 public abstract class Device
 {
-    protected int _id;
+    protected string _id;
     protected string _name;
     protected bool _isOn;
 
-    public Device(int id, string name, bool isOn)
+    public Device(string id, string name, bool isOn)
     {
         _id = id;
         _name = name;
