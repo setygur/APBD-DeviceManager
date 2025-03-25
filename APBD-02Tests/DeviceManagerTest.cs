@@ -67,6 +67,6 @@ public class DeviceManagerTest
     public void GetDevicesFromFile_ShouldReturnNull_WhenFileDoesNotExist()
     {
         var manager = new DeviceManager("nonExistentFile.txt");
-        Assert.Null(manager.GetDevicesFromFile());
+        Assert.Null(manager.GetDevicesFromFile("nonExistentFile.txt"));
     }
 }

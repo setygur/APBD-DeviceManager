@@ -2,23 +2,21 @@ namespace APBD_02.Devices;
 
 public class DeviceManager
 {
-    private String _filePath;
     private Device?[] _devices;
 
     public DeviceManager(string filePath)
     {
-        _filePath = filePath;
-        _devices = new Device[15];
+        _devices = ImportDevices(GetDevicesFromFile(filePath));
     }
 
-    public String[] GetDevicesFromFile()
+    public String[] GetDevicesFromFile(string filePath)
     {
-        if (!File.Exists(_filePath))
+        if (!File.Exists(filePath))
         {
-            Console.WriteLine("File not found: " + _filePath);
+            Console.WriteLine("File not found: " + filePath);
             return null;
         }
-        return File.ReadAllLines(_filePath);
+        return File.ReadAllLines(filePath);
     }
 
     public Device[] ImportDevices(String[] devicesData)
