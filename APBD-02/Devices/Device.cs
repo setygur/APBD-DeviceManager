@@ -50,7 +50,7 @@ public abstract class Device
         return false;
     }
 
-    public override string ToString()
+    public override string ToString() //cannot change to abstract due to tests
     {
         return "Unknown Device";
     }

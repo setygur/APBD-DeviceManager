@@ -5,19 +5,40 @@ namespace APBD_02.Devices;
 
 public class EmbeddedDevice : Device
 {
-    private String? _ip;
-    private String _networkName;
+    private string? _ip;
+    public string NetworkName { get; }
 
-    public EmbeddedDevice(string id, string name, bool isOn, string ip, string networkName) : base(id, name, isOn)
+    public EmbeddedDevice(string id, string name, bool isOn, string ip, string networkName) 
+        : base(id, name, isOn)
     {
-        if (CheckIp(ip))
+        if (networkName != null)
         {
-            _ip = ip;
+            NetworkName = networkName;
         }
-        _networkName = networkName;
+        else
+        {
+            throw new ArgumentNullException(nameof(networkName));
+        }
+        Ip = ip;
+    }
+    
+    public string? Ip
+    {
+        get => _ip;
+        set
+        {
+            if (CheckIp(value))
+            {
+                _ip = value;
+            }
+            else
+            {
+                throw new ArgumentException($"Invalid IP address: {value}");
+            }
+        }
     }
 
-    private bool CheckIp(string ip)
+    private static bool CheckIp(string ip)
     {
         if (Regex.IsMatch(ip,
                 "^((25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$"))
@@ -40,7 +61,7 @@ public class EmbeddedDevice : Device
 
     public override bool turnOn()
     {
-        if (Connect(_networkName))
+        if (Connect(NetworkName))
         {
             return base.turnOn();
         }
@@ -48,20 +69,8 @@ public class EmbeddedDevice : Device
         return false;
     }
 
-    public String? Ip
-    {
-        get => _ip;
-        set
-        {
-            if (CheckIp(value))
-            {
-                _ip = value;
-            }
-        }
-    }
-
     public override string ToString()
     {
-        return Id + "," + Name + "," + _ip + "," + _networkName; 
+        return Id + "," + Name + "," + _ip + "," + NetworkName; 
     }
 }
