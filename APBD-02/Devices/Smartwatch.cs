@@ -7,7 +7,7 @@ public class Smartwatch : Device, IPowerNotifier
     private int _batteryPercentage;
     public Smartwatch(string id, string name, bool isOn, int batteryPercentage) : base(id, name, isOn)
     {
-        _batteryPercentage = batteryPercentage;
+        BatteryPercentage = batteryPercentage; 
     }
 
     public int BatteryPercentage
