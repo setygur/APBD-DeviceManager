@@ -62,6 +62,6 @@ public class EmbeddedDevice : Device
 
     public override string ToString()
     {
-        return _id + "," + _name + "," + _ip + "," + _networkName; 
+        return Id + "," + Name + "," + _ip + "," + _networkName; 
     }
 }

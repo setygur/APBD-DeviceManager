@@ -46,6 +46,6 @@ public class Smartwatch : Device, IPowerNotifier
 
     public override string ToString()
     {
-        return _id + "," + _name + "," + _isOn + "," + _batteryPercentage;
+        return Id + "," + Name + "," + IsOn + "," + _batteryPercentage;
     }
 }

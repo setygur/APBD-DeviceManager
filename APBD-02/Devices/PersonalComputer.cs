@@ -27,6 +27,6 @@ public class PersonalComputer : Device
 
     public override string ToString()
     {
-        return _id + "," + _name + "," + _isOn + "," + _operatingSystem;
+        return Id + "," + Name + "," + IsOn + "," + _operatingSystem;
     }
 }

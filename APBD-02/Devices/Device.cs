@@ -2,47 +2,52 @@ namespace APBD_02.Devices;
 
 public abstract class Device
 {
-    protected string _id;
-    protected string _name;
-    protected bool _isOn;
+    public string Id { get; } //no set to prevent modification. Can be modified with EditDevice()
+    public string Name { get; private set; }
+    public bool IsOn { get; private set; }
 
     public Device(string id, string name, bool isOn)
     {
-        _id = id;
-        _name = name;
-        _isOn = isOn;
-    }
-    
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public bool IsOn { get; set; }
-
-    public virtual bool turnOn()
-    {
-        if (!_isOn)
+        if (id != null)
         {
-            _isOn = true;
-            return true;
+            Id = id;
         }
         else
         {
-            Console.WriteLine("Device is already on");
-            return false;
+            throw new ArgumentNullException(nameof(id));
         }
+
+        if (name != null)
+        {
+            Name = name;
+        }
+        else
+        {
+            throw new ArgumentNullException(nameof(name));
+        }
+        IsOn = isOn;
+    }
+
+    public virtual bool turnOn()
+    {
+        if (!IsOn)
+        {
+            IsOn = true;
+            return true;
+        }
+        Console.WriteLine("Device is already on");
+        return false;
     }
 
     public virtual bool turnOff()
     {
-        if (_isOn)
+        if (IsOn)
         {
-            _isOn = false;
+            IsOn = false;
             return true;
         }
-        else
-        {
-            Console.WriteLine("Device is already off");
-            return false;
-        }
+        Console.WriteLine("Device is already off");
+        return false;
     }
 
     public override string ToString()
