@@ -126,9 +126,65 @@ public class DeviceManager
         Console.WriteLine("Cannot remove the device as it does not appear in devices");
     }
 
-    public void EditDevice(Device d)
+    public void EditDevice(Device editDevice)
     {
+        var targetDeviceIndex = -1;
+        for (var index = 0; index < _devices.Length; index++)
+        {
+            var storedDevice = _devices[index];
+            if (storedDevice != null)
+            {
+                if (storedDevice.Id.Equals(editDevice.Id))
+                {
+                    targetDeviceIndex = index;
+                    break;
+                }
+            }
+        }
+
+        if (targetDeviceIndex == -1)
+        {
+            throw new ArgumentException($"Device with ID {editDevice.Id} is not stored.", nameof(editDevice));
+        }
+
+        if (editDevice is Smartwatch)
+        {
+            if (_devices[targetDeviceIndex] is Smartwatch)
+            {
+                _devices[targetDeviceIndex] = editDevice;
+            }
+            else
+            {
+                throw new ArgumentException($"Type mismatch between devices. " +
+                                            $"Target device has type {_devices[targetDeviceIndex].GetType().Name}");
+            }
+        }
         
+        if (editDevice is PersonalComputer)
+        {
+            if (_devices[targetDeviceIndex] is PersonalComputer)
+            {
+                _devices[targetDeviceIndex] = editDevice;
+            }
+            else
+            {
+                throw new ArgumentException($"Type mismatch between devices. " +
+                                            $"Target device has type {_devices[targetDeviceIndex].GetType().Name}");
+            }
+        }
+        
+        if (editDevice is EmbeddedDevice)
+        {
+            if (_devices[targetDeviceIndex] is EmbeddedDevice)
+            {
+                _devices[targetDeviceIndex] = editDevice;
+            }
+            else
+            {
+                throw new ArgumentException($"Type mismatch between devices. " +
+                                            $"Target device has type {_devices[targetDeviceIndex].GetType().Name}");
+            }
+        }
     }
 
     public void TurnOnDevice(Device device)

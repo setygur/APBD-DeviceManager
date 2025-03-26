@@ -12,6 +12,10 @@ public abstract class Device
         _name = name;
         _isOn = isOn;
     }
+    
+    public string Id { get; set; }
+    public string Name { get; set; }
+    public bool IsOn { get; set; }
 
     public virtual bool turnOn()
     {
