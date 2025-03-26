@@ -2,8 +2,15 @@ namespace APBD_02.Devices.DeviceManagerUtils;
 
 public class DeviceRepository
 {
+    /// <summary>
+    /// Private array to store Devices
+    /// </summary>
     private Device?[] _devices = new Device?[15];
 
+    /// <summary>
+    /// Add device to _devices if there is empty space
+    /// </summary>
+    /// <param name="device"></param>
     public void AddDevice(Device device)
     {
         for (int i = 0; i < _devices.Length; i++)
@@ -18,6 +25,11 @@ public class DeviceRepository
         Console.WriteLine("No empty space available to insert the device.");
     }
     
+    /// <summary>
+    /// Look for the identical id in the devices and replace it with a new one
+    /// </summary>
+    /// <param name="editDevice"></param>
+    /// <exception cref="ArgumentException"></exception>
     public void EditDevice(Device editDevice)
     {
         var targetDeviceIndex = -1;
@@ -79,6 +91,10 @@ public class DeviceRepository
         }
     }
     
+    /// <summary>
+    /// Look for an exact match in the devices and removes it
+    /// </summary>
+    /// <param name="device"></param>
     public void RemoveDevice(Device device)
     {
         for (int i = 0; i < _devices.Length; i++)
@@ -93,6 +109,9 @@ public class DeviceRepository
         Console.WriteLine("Cannot remove the device as it does not appear in devices");
     }
 
+    /// <summary>
+    /// Prints the current content of the Devices into console
+    /// </summary>
     public void ShowAllDevices()
     {
         foreach (var x in _devices)
@@ -108,5 +127,9 @@ public class DeviceRepository
         }
     }
 
+    /// <summary>
+    /// Returns Devices
+    /// </summary>
+    /// <returns>Device?[]</returns>
     public Device?[] GetDevices() => _devices;
 }

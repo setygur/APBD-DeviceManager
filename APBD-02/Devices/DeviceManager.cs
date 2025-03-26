@@ -6,12 +6,20 @@ public class DeviceManager
 {
     private DeviceRepository _repository;
 
+    /// <summary>
+    /// A Constructor for a new DeviceManager object, filePath is used to import data from file
+    /// </summary>
+    /// <param name="filePath"></param>
     public DeviceManager(string filePath)
     {
         _repository = new DeviceRepository();
         ImportDevices(filePath);
     }
     
+    /// <summary>
+    /// Reads the data from file filePath and one by one, parse it and add it to the _repository
+    /// </summary>
+    /// <param name="filePath"></param>
     public void ImportDevices(string filePath)
     {
         var deviceData = DeviceFileService.GetDevicesFromFile(filePath);
@@ -22,7 +30,12 @@ public class DeviceManager
         }
     }
 
-    public Device?[] GetDevicesFromFile(string filePath)
+    /// <summary>
+    /// Read the file filePath, parse its content into Device and returns the collection
+    /// </summary>
+    /// <param name="filePath"></param>
+    /// <returns>Device?[]</returns>
+    public Device?[] GetDevicesFromFile(string filePath) //cannot remove due to tests
     { 
         Device?[] devices = new Device[15];
         var deviceData = DeviceFileService.GetDevicesFromFile(filePath);
@@ -38,28 +51,60 @@ public class DeviceManager
             }
         }
         return devices;
-    } //kept it here due to the tests
+    }
+    
+    /// <summary>
+    /// Adds a Device to _repository
+    /// </summary>
+    /// <param name="device"></param>
     public void AddDevice(Device device) =>
         _repository.AddDevice(device);
 
+    /// <summary>
+    /// Removes a Device from _repository
+    /// </summary>
+    /// <param name="device"></param>
     public void RemoveDevice(Device device) =>
         _repository.RemoveDevice(device);
 
+    /// <summary>
+    /// Edits Device in _repository using matching Ids
+    /// </summary>
+    /// <param name="editDevice"></param>
     public void EditDevice(Device editDevice) =>
         _repository.EditDevice(editDevice);
 
+    /// <summary>
+    /// Turns a device on
+    /// </summary>
+    /// <param name="device"></param>
     public void TurnOnDevice(Device device) =>
         device.turnOn();
 
+    /// <summary>
+    /// Turns a Device off
+    /// </summary>
+    /// <param name="device"></param>
     public void TurnOffDevice(Device device) =>
         device.turnOff();
 
+    /// <summary>
+    /// Outputs the contents of _repository to console
+    /// </summary>
     public void ShowAllDevices() =>
         _repository.ShowAllDevices();
 
+    /// <summary>
+    /// Export a _repository content to a file outputPath
+    /// </summary>
+    /// <param name="outputPath"></param>
     public void ExportDevices(String outputPath) =>
         DeviceFileService.ExportDevices(outputPath, _repository.GetDevices());
 
+    /// <summary>
+    /// Returns content of _repository
+    /// </summary>
+    /// <returns>Device?[]</returns>
     public Device?[] GetDevices() =>
         _repository.GetDevices();
 }

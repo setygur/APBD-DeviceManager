@@ -6,6 +6,13 @@ public abstract class Device
     public string Name { get; private set; }
     public bool IsOn { get; private set; }
 
+    /// <summary>
+    /// A Constructor for a Device object
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="name"></param>
+    /// <param name="isOn"></param>
+    /// <exception cref="ArgumentNullException"></exception>
     public Device(string id, string name, bool isOn)
     {
         if (id != null)
@@ -28,6 +35,10 @@ public abstract class Device
         IsOn = isOn;
     }
 
+    /// <summary>
+    /// Turns on the device if it is not turned on already, return true if successful
+    /// </summary>
+    /// <returns>bool</returns>
     public virtual bool turnOn()
     {
         if (!IsOn)
@@ -39,6 +50,10 @@ public abstract class Device
         return false;
     }
 
+    /// <summary>
+    /// Turns off the device if it is not turned off already, return true if successful
+    /// </summary>
+    /// <returns>bool</returns>
     public virtual bool turnOff()
     {
         if (IsOn)
@@ -50,6 +65,10 @@ public abstract class Device
         return false;
     }
 
+    /// <summary>
+    /// Virtual method to return the Device data
+    /// </summary>
+    /// <returns>string</returns>
     public override string ToString() //cannot change to abstract due to tests
     {
         return "Unknown Device";

@@ -2,6 +2,11 @@ namespace APBD_02.Devices.DeviceManagerUtils;
 
 public static class DeviceParser
 {
+    /// <summary>
+    /// Takes a string with device data and parse it into new object Device
+    /// </summary>
+    /// <param name="deviceData"></param>
+    /// <returns>Device?</returns>
     public static Device? ParseDevice(string deviceData)
     {
         String[] splitDeviceData = deviceData.Split(',');

@@ -2,6 +2,11 @@ namespace APBD_02.Devices.DeviceManagerUtils;
 
 public static class DeviceFileService
 {
+    /// <summary>
+    /// Read the file and provide an array of Strings with lines read
+    /// </summary>
+    /// <param name="filePath"></param>
+    /// <returns>String[] of lines from file</returns>
     public static String[] GetDevicesFromFile(string filePath)
     {
         if (!File.Exists(filePath))
@@ -12,6 +17,11 @@ public static class DeviceFileService
         return File.ReadAllLines(filePath);
     }
     
+    /// <summary>
+    /// Writes devices into a file
+    /// </summary>
+    /// <param name="outputPath"></param>
+    /// <param name="devices"></param>
     public static void ExportDevices(String outputPath, Device?[] devices)
     {
         if (!Directory.Exists(outputPath))
