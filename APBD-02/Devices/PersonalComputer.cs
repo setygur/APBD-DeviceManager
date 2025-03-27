@@ -12,7 +12,7 @@ public class PersonalComputer : Device
     /// <param name="id"></param>
     /// <param name="name"></param>
     /// <param name="isOn"></param>
-    public PersonalComputer(string id, string name, bool isOn) : base(id, name, isOn) {}
+    public PersonalComputer(string id, string name, bool isOn) : base(id, name, isOn) {} //cannot remove due to tests
 
     /// <summary>
     /// A constructor for a PersonalComputer object, take OperatingSystem as a param

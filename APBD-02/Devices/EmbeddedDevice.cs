@@ -73,7 +73,9 @@ public class EmbeddedDevice : Device
     /// Checks if the network name contains a proper string
     /// </summary>
     /// <param name="networkName"></param>
-    /// <returns></returns>
+    /// <returns>
+    /// true if operation is successful, false otherwise
+    /// </returns>
     /// <exception cref="ConnectionException"></exception>
     private bool Connect(String networkName)
     {
@@ -89,7 +91,9 @@ public class EmbeddedDevice : Device
     /// Turns on a Device if the network name contains a proper string
     /// Returns true if operation successful
     /// </summary>
-    /// <returns>bool</returns>
+    /// <returns>
+    /// true if operation is successful, false otherwise
+    /// </returns>
     public override bool turnOn()
     {
         if (Connect(NetworkName))
@@ -103,7 +107,9 @@ public class EmbeddedDevice : Device
     /// <summary>
     /// Return data device
     /// </summary>
-    /// <returns>string</returns>
+    /// <returns>
+    /// Device data in string
+    /// </returns>
     public override string ToString()
     {
         return Id + "," + Name + "," + _ip + "," + NetworkName; 

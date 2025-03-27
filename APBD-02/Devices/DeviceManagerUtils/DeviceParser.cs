@@ -6,7 +6,10 @@ public static class DeviceParser
     /// Takes a string with device data and parse it into new object Device
     /// </summary>
     /// <param name="deviceData"></param>
-    /// <returns>Device?</returns>
+    /// <returns>
+    /// new Device object of a specific type
+    /// null if deviceData is incorrect
+    /// </returns>
     public static Device? ParseDevice(string deviceData)
     {
         String[] splitDeviceData = deviceData.Split(',');

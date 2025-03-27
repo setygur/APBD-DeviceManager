@@ -6,7 +6,9 @@ public static class DeviceFileService
     /// Read the file and provide an array of Strings with lines read
     /// </summary>
     /// <param name="filePath"></param>
-    /// <returns>String[] of lines from file</returns>
+    /// <returns>
+    /// String[] of lines from file
+    /// </returns>
     public static String[] GetDevicesFromFile(string filePath)
     {
         if (!File.Exists(filePath))

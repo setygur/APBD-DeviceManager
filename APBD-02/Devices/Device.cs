@@ -38,7 +38,9 @@ public abstract class Device
     /// <summary>
     /// Turns on the device if it is not turned on already, return true if successful
     /// </summary>
-    /// <returns>bool</returns>
+    /// <returns>
+    /// true if operation is successful, false otherwise
+    /// </returns>
     public virtual bool turnOn()
     {
         if (!IsOn)
@@ -53,7 +55,9 @@ public abstract class Device
     /// <summary>
     /// Turns off the device if it is not turned off already, return true if successful
     /// </summary>
-    /// <returns>bool</returns>
+    /// <returns>
+    ///true if operation is successful, false otherwise
+    /// </returns>
     public virtual bool turnOff()
     {
         if (IsOn)
@@ -68,7 +72,9 @@ public abstract class Device
     /// <summary>
     /// Virtual method to return the Device data
     /// </summary>
-    /// <returns>string</returns>
+    /// <returns>
+    /// Device data in string
+    /// </returns>
     public override string ToString() //cannot change to abstract due to tests
     {
         return "Unknown Device";

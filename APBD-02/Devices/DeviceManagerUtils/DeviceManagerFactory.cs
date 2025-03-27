@@ -6,7 +6,9 @@ public static class DeviceManagerFactory
     /// DeviceManagerFactory
     /// </summary>
     /// <param name="filePath"></param>
-    /// <returns>DeviceManager</returns>
+    /// <returns>
+    /// new instance of DeviceManager
+    /// </returns>
     public static DeviceManager CreateDeviceManager(string filePath)
     {
         return new DeviceManager(filePath);

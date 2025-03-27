@@ -130,6 +130,8 @@ public class DeviceRepository
     /// <summary>
     /// Returns Devices
     /// </summary>
-    /// <returns>Device?[]</returns>
+    /// <returns>
+    /// Device?[] content of a repository
+    /// </returns>
     public Device?[] GetDevices() => _devices;
 }

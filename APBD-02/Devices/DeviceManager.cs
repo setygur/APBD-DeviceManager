@@ -34,7 +34,9 @@ public class DeviceManager
     /// Read the file filePath, parse its content into Device and returns the collection
     /// </summary>
     /// <param name="filePath"></param>
-    /// <returns>Device?[]</returns>
+    /// <returns>
+    /// creates new Device?[]
+    /// </returns>
     public Device?[] GetDevicesFromFile(string filePath) //cannot remove due to tests
     { 
         Device?[] devices = new Device[15];
