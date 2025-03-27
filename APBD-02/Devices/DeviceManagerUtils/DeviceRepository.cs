@@ -92,21 +92,21 @@ public class DeviceRepository
     }
     
     /// <summary>
-    /// Look for an exact match in the devices and removes it
+    /// Look for an Id match in the devices and removes it
     /// </summary>
     /// <param name="device"></param>
     public void RemoveDevice(Device device)
     {
+        var deviceId = device.Id;
         for (int i = 0; i < _devices.Length; i++)
         {
-            if (_devices[i] == device)
+            if (_devices[i].Id.Equals(deviceId))
             {
                 _devices[i] = null;
                 Console.WriteLine("Device removed at index " + i);
                 return;
             }
         }
-        Console.WriteLine("Cannot remove the device as it does not appear in devices");
     }
 
     /// <summary>
