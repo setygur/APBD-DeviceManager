@@ -1,4 +1,5 @@
 ﻿using APBD_02.Devices;
+using APBD_02.Devices.DeviceManagerUtils;
 using APBD_02.Devices.Exceptions;
 
 // DeviceManager deviceManager = new DeviceManager("input-path");
@@ -12,7 +13,7 @@ using APBD_02.Devices.Exceptions;
 
 try
 {
-    DeviceManager deviceManager = new("input.txt");
+    DeviceManager deviceManager = DeviceManagerFactory.CreateDeviceManager("input.txt");
             
     Console.WriteLine("Devices presented after file read.");
     deviceManager.ShowAllDevices();
